@@ -1,0 +1,429 @@
+{% extends 'base.html'%}
+{% load static %}
+
+{% block title %} | Accueil{% endblock %}
+
+{% block content %}
+<div class="container-flex">
+
+
+    <!--jumbotron 1-->
+    <div class="jumbotron jumbotron-fluid p-3 m-0 text-center bg-light">
+  <div class="container">
+    <h1 class="display-4">SOCIETE MULTISERVICES ISSAC</h1>
+    <p class="lead">
+      Votre partenaire de confiance pour tous vos besoins en automobile, transport et logistique :
+      <br><strong>Déménagement, mécanique, carrosserie, pare-brise, achat/vente de véhicules, location de voitures et engins.</strong>
+    </p>
+    <hr>
+    <p>Avec notre équipe expérimentée et nos services variés, nous vous garantissons un accompagnement complet, rapide et professionnel.</p>
+  </div>
+</div>
+
+
+
+
+    <!--carousel-->
+    <section>
+      <div id="carouselIssactrans" class="carousel slide carousel-fade" data-ride="carousel">
+        <div class="carousel-inner">
+
+          <div class="carousel-item active" data-interval="1500">
+              <img src="{% static 'img/ban-v.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+
+          <div class="carousel-item" data-interval="1500">
+            <img src="{% static 'img/ban-devis.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+
+          <div class="carousel-item" data-interval="1500">
+            <img src="{% static 'img/ban-pres.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+
+          <div class="carousel-item" data-interval="1500">
+            <img src="{% static 'img/banr-avis.jpg' %}" class="d-block w-100" alt="...">
+          </div>
+
+         </div>
+      </div>
+    </section>
+
+
+    <!--jumbotron 1 Mécanique automobile & Carrosserie-->
+    <section class="py-3">
+    <div class="container">
+        <div class="row align-items-stretch">
+            <!-- Image -->
+            <div class="col-md-4 mb-3">
+                <div class="h-100 d-flex align-items-center justify-content-center">
+                    <img src="{% static 'img/MG-banner-serv.jpg' %}" alt="Mécanique automobile" class="img-fluid rounded shadow" style="object-fit: cover; height: 100%; width: 100%;">
+                </div>
+            </div>
+            <!-- Texte -->
+            <div class="col-md-8 mb-3">
+                <div class="jumbotron p-4 rounded h-100 d-flex flex-column justify-content-between" style="background-color: #f8f9fa;">
+                    <div>
+                        <h4 class="display-6 text-center mb-3">
+                            <span class="service-icon">🔧</span> 
+                            Mécanique automobile & Carrosserie
+                        </h4>
+                        <hr class="my-3">
+                        <p class="text-center">
+                            Nous assurons l'entretien complet et la réparation mécanique de tous types de véhicules. 
+                            De la vidange aux interventions plus complexes, notre atelier est équipé pour diagnostiquer et résoudre toutes les pannes. Nous proposons également des services de carrosserie et de peinture pour redonner à votre 
+                            véhicule son aspect d'origine, ainsi que le changement de pare-brise et autres vitrages.
+                        </p>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a class="btn btn-warning btn-lg" href="#" role="button">Lire plus...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+  <!--Fin jumbotron Mécanique automobile & Carrosserie-->
+
+
+
+    <!--jumbotron2 Déménagement-->
+    <section class="py-3">
+    <div class="container">
+        <div class="row align-items-stretch">
+            <!-- Image -->
+            <div class="col-md-4 mb-3">
+                <div class="h-100 d-flex align-items-center justify-content-center">
+                    <img src="{% static 'img/demenage.jpg' %}" alt="Déménagement" class="img-fluid rounded shadow" style="object-fit: cover; height: 100%; width: 100%;">
+                </div>
+            </div>
+            <!-- Texte -->
+            <div class="col-md-8 mb-3">
+                <div class="jumbotron p-4 rounded h-100 d-flex flex-column justify-content-between" style="background-color: #f8f9fa;">
+                    <div>
+                        <h4 class="display-6 text-center mb-3">🚚 Déménagement</h4>
+                        <hr class="my-3">
+                        <p class="text-center">
+                            Nous organisons des déménagements sur mesure pour les particuliers et les professionnels. Notre équipe s'occupe de l'emballage, du transport et du déchargement, en toute sécurité.
+                            Que ce soit pour un déménagement local ou longue distance, nous vous garantissons un service efficace et sans stress.
+                        </p>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a class="btn btn-warning btn-lg" href="#" role="button">Lire plus...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--Fin jumbotron2 Déménagement-->
+
+
+   <!--jumbotron3 Achat et vente de véhicules d’occasion-->
+    <section class="py-3">
+    <div class="container">
+        <div class="row align-items-stretch">
+            <!-- Image -->
+            <div class="col-md-4 mb-3">
+                <div class="h-100 d-flex align-items-center justify-content-center">
+                    <img src="{% static 'img/achat.jpg' %}" alt="Déménagement" class="img-fluid rounded shadow" style="object-fit: cover; height: 100%; width: 100%;">
+                </div>
+            </div>
+            <!-- Texte -->
+            <div class="col-md-8 mb-3">
+                <div class="jumbotron p-4 rounded h-100 d-flex flex-column justify-content-between" style="background-color: #f8f9fa;">
+                    <div>
+                        <h4 class="display-6 text-center mb-3">🚗 Achat et vente de véhicules d’occasion</h4>
+                        <hr class="my-3">
+                        <p class="text-center">
+                           Notre entreprise propose un large choix de véhicules d’occasion contrôlés et garantis. Nous achetons également des véhicules à des prix compétitifs. 
+                           Que vous souhaitiez vendre ou acheter, nous vous accompagnons avec transparence et professionnalisme.
+                        </p>
+                    </div>
+                    <div class="text-center mt-3">
+                        <a class="btn btn-warning btn-lg" href="#" role="button">Lire plus...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <!--Fin jumbotron3 Achat et vente de véhicules d’occasion-->
+
+
+ <!--jumbotron4 Location de véhicules et d’engins-->
+    <section class="py-3">
+    <div class="container">
+        <div class="row align-items-stretch">
+            <!-- Image -->
+            <div class="col-md-4 mb-3">
+                <div class="h-100 d-flex align-items-center justify-content-center">
+                    <img src="{% static 'img/engin.jpg' %}" alt="Déménagement" class="img-fluid rounded shadow" style="object-fit: cover; height: 100%; width: 100%;">
+                </div>
+            </div>
+            <!-- Texte -->
+            <div class="col-md-8 mb-3">
+                <div class="jumbotron p-4 rounded h-100 d-flex flex-column justify-content-between" style="background-color: #f8f9fa;">
+                    <div>
+                        <h4 class="display-6 text-center mb-3">🛻 Location de véhicules et d’engins</h4>
+                        <hr class="my-3">
+                        <p class="text-center">
+                           Nous mettons à votre disposition un parc varié de véhicules utilitaires, voitures de tourisme et engins (engins de chantier, remorques, etc.)
+                            à la location, à court ou long terme, selon vos besoins.
+                    </div>
+                    <div class="text-center mt-3">
+                        <a class="btn btn-warning btn-lg" href="#" role="button">Lire plus...</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+ <!--Fin jumbotron4 Location de véhicules et d’engins-->
+
+
+
+
+    <hr>
+
+    <!--new service-->
+   <section class="py-5 bg-light">
+  <div class="container">
+    
+    <!-- Titre principal -->
+    <div class="text-center mb-4">
+      <h1 class="display-5 fw-bold">SOCIETE MULTISERVICES ISSAC</h1>
+      <p class="lead">
+        Nous nous engageons à offrir à nos clients une tranquillité d'esprit totale.
+        C'est pourquoi nous vous proposons une garantie exceptionnelle de <strong>2 ans</strong> sur toutes les pièces que nous installons ainsi que sur la main-d'œuvre.
+      </p>
+    </div>
+
+    <!-- Définitions -->
+    <div class="row justify-content-center mb-5">
+      <div class="col-md-4">
+        <div class="border-start border-4 border-warning ps-3">
+          <h6 class="fw-bold">🔧 Garantie Pièces</h6>
+          <p class="text-muted small">Toutes nos pièces sont certifiées, contrôlées et garanties pour une durée de 24 mois.</p>
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="border-start border-4 border-warning ps-3">
+          <h6 class="fw-bold">🛠️ Garantie Main-d'œuvre</h6>
+          <p class="text-muted small">Nos interventions sont couvertes contre toute malfaçon pour vous assurer sérénité et sécurité.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cartes de services -->
+    <div class="row justify-content-center g-4">
+
+      {% for serv in services|slice:':8' %}
+      <div class="col-md-4 col-lg-3 d-flex">
+        <div class="card shadow-sm w-100">
+          <img src="{{ serv.photo.url }}" class="card-img-top" alt="{{ serv.nom }}">
+          <div class="card-body d-flex flex-column">
+            <h5 class="card-title">{{ serv.nom }}</h5>
+            <p class="card-text small text-muted">{{ serv.description|truncatechars:80 }}</p>
+            <a href="{% url 'service' service_id=serv.id %}" class="btn btn-warning mt-auto">Afficher détails</a>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+
+    </div>
+  </div>
+</section>
+
+    <!--jumbotron 2-->
+  <!-- SECTION PRESTATIONS -->
+<section class="services-section py-5 bg-light">
+  <div class="container">
+
+    <!-- Header -->
+    <div class="text-center mb-5">
+      <h1 class="display-5 fw-bold">
+        <i class="bi bi-tools me-2 text-warning"></i> Nos Prestations
+      </h1>
+      <p class="lead">MG AUTO ONE - Votre garage de confiance à Petit-Couronne</p>
+      <p class="text-muted">Spécialiste en mécanique automobile, carrosserie et entretien véhicules toutes marques.</p>
+    </div>
+
+    <!-- Filtrage des catégories (préparé pour interactivité future) -->
+    <div class="text-center mb-4">
+      <a href="{% url 'services' %}" class="btn btn-outline-dark btn-sm mx-1">Tous les services</a>
+      <a href="{% url 'devis' %}" class="btn btn-outline-dark btn-sm mx-1">Contact</a>
+     
+    </div>
+
+    <!-- Galerie de prestations -->
+    <div class="row g-4">
+
+      <!-- Carte Carrosserie -->
+      <div class="col-md-6 service-card" data-category="carrosserie" data-aos="fade-up">
+        <div class="card shadow-sm h-100 hover-zoom">
+          <img src="{% static 'img/offer-devis-i-car.jpg' %}" class="card-img-top" alt="Service carrosserie">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-paint-bucket me-1 text-warning"></i> Carrosserie</h5>
+            <p class="card-text">Réparation, débosselage et peinture sur mesure.</p>
+            <a href="{% url 'devis' %}" class="btn btn-warning">Devis gratuit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte Mécanique -->
+      <div class="col-md-6 service-card" data-category="mecanique" data-aos="fade-up" data-aos-delay="100">
+        <div class="card shadow-sm h-100 hover-zoom">
+          <img src="{% static 'img/offer-devis-i-m.jpg' %}" class="card-img-top" alt="Service mécanique">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-gear-fill me-1 text-warning"></i> Mécanique</h5>
+            <p class="card-text">Entretien complet, diagnostics et réparations moteurs.</p>
+            <a href="{% url 'devis' %}" class="btn btn-warning">Devis gratuit</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Carte Demenagement-->
+         <div class="col-md-6 service-card" data-category="mecanique" data-aos="fade-up" data-aos-delay="100">
+        <div class="card shadow-sm h-100 hover-zoom">
+          <img src="{% static 'img/offer-devis-i-m.jpg' %}" class="card-img-top" alt="Service mécanique">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-gear-fill me-1 text-warning"></i>🚚 Déménagement sans stress</h5>
+            <p class="card-text">Que vous changiez de quartier ou de région, Notre Societe vous accompagne dans toutes les étapes de votre déménagement.</p>
+            <a href="{% url 'devis' %}" class="btn btn-warning">Devis gratuit</a>
+          </div>
+        </div>
+      </div>
+       <!-- Fin Carte Demenagement-->
+
+       <!-- Carte Achat et vente de véhicules d’occasion-->
+         <div class="col-md-6 service-card" data-category="mecanique" data-aos="fade-up" data-aos-delay="100">
+        <div class="card shadow-sm h-100 hover-zoom">
+          <img src="{% static 'img/offer-devis-i-m.jpg' %}" class="card-img-top" alt="Service mécanique">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-gear-fill me-1 text-warning"></i>🚗 Achat et vente de véhicules d’occasion</h5>
+            <p class="card-text">Que vous changiez de quartier ou de région, Notre Societe vous accompagne dans toutes les étapes de votre déménagement.</p>
+            <a href="{% url 'devis' %}" class="btn btn-warning">Devis gratuit</a>
+          </div>
+        </div>
+      </div>
+       <!-- Fin Carte Achat et vente de véhicules d’occasion-->
+
+       <!-- Carte Location de véhicules et d’engins-->
+         <div class="col-md-6 service-card" data-category="mecanique" data-aos="fade-up" data-aos-delay="100">
+        <div class="card shadow-sm h-100 hover-zoom">
+          <img src="{% static 'img/offer-devis-i-m.jpg' %}" class="card-img-top" alt="Service mécanique">
+          <div class="card-body">
+            <h5 class="card-title"><i class="bi bi-gear-fill me-1 text-warning"></i>🛻 Location de véhicules et d’engins</h5>
+            <p class="card-text">Que vous changiez de quartier ou de région, Notre Societe vous accompagne dans toutes les étapes de votre déménagement.</p>
+            <a href="{% url 'devis' %}" class="btn btn-warning">Devis gratuit</a>
+          </div>
+        </div>
+      </div>
+       <!-- Fin Carte Location de véhicules et d’engins-->
+
+
+
+    </div>
+  </div>
+</section>
+
+   
+
+    </section>
+
+   <section class="opening-hours-section py-5 text-white">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="card shadow-lg">
+                    <!-- En-tête -->
+                    <div class="card-header bg-warning text-white text-center py-4">
+                        <h2 class="mb-0">
+                            <i class="bi bi-clock-fill me-2"></i>
+                            HORAIRES D'OUVERTURE
+                        </h2>
+                    </div>
+
+                    <!-- Corps -->
+                    <div class="card-body">
+                       <body style="background-image: url('{% static "img/.jpg" %}'); background-size: cover; background-repeat: no-repeat; background-position: center;">
+                        <!-- Tableau des horaires -->
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td class="fw-bold">Lundi</td>
+                                        <td><span class="badge bg-warning">09:00 - 12:00</span></td>
+                                        <td><span class="badge bg-warning">13:00 - 18:00</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Mardi</td>
+                                        <td><span class="badge bg-warning">09:00 - 12:00</span></td>
+                                        <td><span class="badge bg-warning">13:00 - 18:00</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Mercredi</td>
+                                        <td><span class="badge bg-warning">09:00 - 12:00</span></td>
+                                        <td><span class="badge bg-warning">13:00 - 18:00</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Jeudi</td>
+                                        <td><span class="badge bg-warning">09:00 - 12:00</span></td>
+                                        <td><span class="badge bg-warning">13:00 - 18:00</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Vendredi</td>
+                                        <td><span class="badge bg-warning">09:00 - 12:00</span></td>
+                                        <td><span class="badge bg-warning">13:00 - 18:00</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Samedi</td>
+                                        <td><span class="badge bg-warning">09:00 - 12:00</span></td>
+                                        <td><span class="badge bg-warning">13:00 - 18:00</span></td>
+                                    </tr>
+                                    <tr>
+                                        <td class="fw-bold">Dimanche</td>
+                                        <td colspan="2"><span class="badge bg-danger">Fermé</span></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <!-- Information de contact -->
+                        <div class="contact-info mt-4 text-center">
+                            <div class="address-block p-3 bg-warning rounded">
+                                <h4 class="mb-3">
+                                    <i class="bi bi-geo-alt-fill text-primary"></i>
+                                    Notre adresse
+                                </h4>
+                                <p class="mb-0">MG AUTO ONE</p>
+                                <p class="mb-0">88 Impasse Aglaée Drouard</p>
+                                <p class="mb-0">76650 Petit-Couronne</p>
+                            </div>
+
+                            <!-- Boutons d'action -->
+                            
+                            <section class="opening-hours-section py-5">
+   
+
+                            <!-- Boutons d'action -->
+                            <div class="action-buttons mt-4">
+                                <a href="{% url 'devis' %}" class="btn btn-warning me-2">
+                                    <i class="bi bi-envelope-fill"></i> Nous contacter
+                                </a>
+                                <a href="https://maps.app.goo.gl/iSBcXhYy7jQk52jZ7" target="_blank" class="btn btn-outline btn-warning">
+                                    <i class="bi bi-geo-alt"></i> Itinéraire
+                                </a>
+                            </div>
+
+                          </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+  
+  </div>
+{% endblock%}

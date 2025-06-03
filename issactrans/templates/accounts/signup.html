@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+
+{% block title %} | S'inscrire{% endblock %}
+
+{% block content %}
+<div class="container my-5 bg-light">
+  <div class="row justify-content-center">
+    <div class="col-md-8">
+      <div class="card shadow-lg border-0 rounded-4">
+        <div class="card-body p-5">
+          <h2 class="text-center text-uppercase text-warning mb-4">
+            <i class="bi bi-person-plus-fill me-2"></i>S'inscrire
+          </h2>
+          <hr>
+
+          {% include 'partials/_alerts.html' %}
+
+          {% if is_added %}
+            <div class="alert alert-success text-center">Votre inscription a été effectuée avec succès !</div>
+          {% else %}
+          <form method="POST" novalidate>
+            {% csrf_token %}
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="inputFirstName" class="form-label">Nom</label>
+                <input type="text" class="form-control" name="fname" id="inputFirstName" required value="{{ fname }}">
+              </div>
+              <div class="col-md-6">
+                <label for="inputLastName" class="form-label">Prénom</label>
+                <input type="text" class="form-control" name="lname" id="inputLastName" required value="{{ lname }}">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="inputAddress" class="form-label">Adresse</label>
+              <input type="text" class="form-control" name="address" id="inputAddress" placeholder="6 rue Newton" required value="{{ address }}">
+            </div>
+
+            <div class="mb-3">
+              <label for="inputAddress2" class="form-label">Adresse 2</label>
+              <input type="text" class="form-control" name="address2" id="inputAddress2" placeholder="Appartement, étage, etc." required value="{{ address2 }}">
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="inputCity" class="form-label">Ville</label>
+                <input type="text" class="form-control" name="city" id="inputCity" required value="{{ city }}">
+              </div>
+              <div class="col-md-3">
+                <label for="inputZip" class="form-label">CP</label>
+                <input type="text" class="form-control" name="zip" id="inputZip" placeholder="76000" required value="{{ zip }}">
+              </div>
+              <div class="col-md-3">
+                <label for="inputState" class="form-label">Pays</label>
+                <input type="text" class="form-control" name="state" id="inputState" required value="{{ state }}">
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input type="email" class="form-control" name="email" id="inputEmail" placeholder="nom@exemple.com" required value="{{ email }}">
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-md-6">
+                <label for="inputUsername" class="form-label">Nom d'utilisateur</label>
+                <input type="text" class="form-control" name="user" id="inputUsername" required value="{{ user }}">
+              </div>
+              <div class="col-md-6">
+                <label for="inputPassword" class="form-label">Mot de passe</label>
+                <input type="password" class="form-control" name="pass" id="inputPassword" required value="{{ pass }}">
+              </div>
+            </div>
+
+            <div class="form-check mb-4">
+              <input type="checkbox" class="form-check-input" name="terms" id="inputTerms">
+              <label class="form-check-label" for="inputTerms">
+                J'accepte les conditions d'utilisation et la politique de confidentialité
+              </label>
+            </div>
+
+            <div class="d-grid">
+              <button type="submit" name="btnsignup" class="btn btn-warning btn-lg">
+                <i class="bi bi-check2-circle me-1"></i> S'inscrire
+              </button>
+            </div>
+          </form>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,145 @@
+
+{% load static %}
+
+<!--navbar-->
+
+ <nav class="navbar navbar-expand-lg navbar-dark navbar-custom fixed-top ">
+    <a class="navbar-brand" href="{% url 'index' %}">
+        <img src="{% static 'img/issac.jpg' %}" class="img-brand" alt="logo issactransport">
+      
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto">
+
+          <li 
+          {% if '/' == request.path %}
+            class="nav-item active"
+          {% else %}
+          class="nav-item"  
+          {% endif %}
+          >
+              <a class="nav-link" href="{% url 'index' %}">Accueil <span class="sr-only">(current)</span></a>
+          </li>
+
+          <li 
+          {% if 'signin'  in request.path or 'signup' in request.path or 'profile' in request.path %}
+          class="nav-item dropdown active"
+          {% else %}
+          class="nav-item dropdown"
+          {% endif %}
+          >
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            {% if request.user.is_authenticated %}
+            Bienvenu(e)
+            {% else %}
+            Rejoignez-nous
+            {% endif %}
+            </a>
+            <div class="dropdown-menu animate slideIn" aria-labelledby="navbarDropdown">
+             {% if request.user.is_authenticated %} 
+             <a class="dropdown-item" href="{% url 'profile' %}">Profile({{request.user.username}})</a>
+             <a href="{% url 'show_service_favorite' %}" class="dropdown-item">Mes Favoris</a>
+             <div class="dropdown-divider"></div>
+             <a class="dropdown-item" href="{% url 'logout' %}">
+              déconnexion
+             </a>
+             {% else %}
+             <a class="dropdown-item" href="{% url 'signin' %}">Connexion</a>
+             <a class="dropdown-item" href="{% url 'signup' %}">S'enregistrer</a>
+             {% endif %}
+            </div>
+          </li>
+
+          <li 
+          {% if 'issactrans' in request.path %}
+            class="nav-item active"
+          {% else %}
+            class="nav-item" 
+          {% endif %}
+          id="issactrans-nav-item">
+              <a class="nav-link" href="{% url 'issactrans' %}">IssacTrans</a>
+          </li>
+
+          
+          <li 
+          {% if 'service' in request.path or 'search' in request.path %}
+            class="nav-item dropdown active"
+          {% else %}
+            class="nav-item dropdown"
+          {% endif %}
+          >
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Nos Services
+            </a>
+            <div class="dropdown-menu animate slideIn" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="{% url 'service' service_id=1 %}">Freinage</a>
+            <a class="dropdown-item" href="{% url 'service' service_id=2 %}">Embrayage</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'service' service_id=3 %}">Échappement</a>
+            <a class="dropdown-item" href="{% url 'service' service_id=4 %}">Direction&Transmission</a>
+            <div class="dropdown-divider"></div>
+             <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'service' service_id=3 %}">Déménagement</a>
+            <a class="dropdown-item" href="{% url 'service' service_id=4 %}">Achat et vente de véhicules d’occasion</a>
+            <a class="dropdown-item" href="{% url 'service' service_id=4 %}">Location de véhicules et d’engins</a>
+            <div class="dropdown-divider"></div>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="{% url 'services' %}">Tous nos Services</a>
+            </div>
+          </li>
+
+          <li 
+          {% if 'contact' in request.path %}
+          class="nav-item active"
+          {% else %}
+          class="nav-item"
+          {% endif %}
+          >
+            <a class="nav-link" href="{% url 'devis' %}">Contact/Devis</a>
+          </li>
+
+           <li 
+          {% if 'crudapp' in request.path %}
+            class="nav-item active"
+          {% else %}
+            class="nav-item"
+          {% endif %}>
+            <a class="nav-link" href="/crudapp/">
+            <i class="fas fa-users"></i> Gestion Employés
+            </a>
+          </li>
+
+          <li 
+          {% if 'about' in request.path %}
+          class="nav-item active"
+          {% else %}
+          class="nav-item"
+          {% endif %}
+          >
+            <a class="nav-link" href="{% url 'about' %}">À propos</a>
+          </li>
+
+         
+        </ul>
+        {% if request.user.is_authenticated %}
+        <!--
+        <span class="text-light" style="margin-right: 0px">
+          Welcome, {{request.user.username}}
+        </span>
+        -->
+        {% endif %}
+        <form action="{% url 'services' %}" class="d-flex align-items-center">
+          <div class="input-group">
+            <input class="form-control" name="searchname" type="search" placeholder="Rechercher" aria-label="Search">
+            <button class="btn btn-warning" type="submit">Rechercher</button>
+            <a href="{% url 'search' %}" class="btn btn-warning" type="button">
+              <i class="fas fa-cog"></i>
+            </a>
+          </div>
+        </form>
+    </div>
+</nav>

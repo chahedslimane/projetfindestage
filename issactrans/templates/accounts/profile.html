@@ -1,0 +1,87 @@
+{% extends 'base.html' %}
+
+{% block title %} | Profil{% endblock %}
+
+{% block content %}
+<div class="container my-5 bg-light">
+  <div class="card shadow-lg border-0 rounded-4">
+    <div class="card-body p-5">
+      <h2 class="text-center text-uppercase text-warning mb-4">
+        <i class="bi bi-person-circle me-2"></i> Profil utilisateur
+      </h2>
+      <hr>
+
+      {% if request.user.is_authenticated %}
+      <form method="POST" novalidate>
+        {% csrf_token %}
+        {% include 'partials/_alerts.html' %}
+
+        <div class="row g-3">
+          <div class="col-md-6">
+            <label for="inputFirstName" class="form-label">Nom</label>
+            <input type="text" class="form-control rounded-3" name="fname" id="inputFirstName" required value="{{ fname }}">
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputLastName" class="form-label">Prénom</label>
+            <input type="text" class="form-control rounded-3" name="lname" id="inputLastName" required value="{{ lname }}">
+          </div>
+
+          <div class="col-12">
+            <label for="inputAddress" class="form-label">Adresse</label>
+            <input type="text" class="form-control rounded-3" name="address" id="inputAddress" placeholder="6 rue Newton" required value="{{ address }}">
+          </div>
+
+          <div class="col-12">
+            <label for="inputAddress2" class="form-label">Adresse 2</label>
+            <input type="text" class="form-control rounded-3" name="address2" id="inputAddress2" placeholder="Appartement, studio ou étage" required value="{{ address2 }}">
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputCity" class="form-label">Ville</label>
+            <input type="text" class="form-control rounded-3" name="city" id="inputCity" required value="{{ city }}">
+          </div>
+
+          <div class="col-md-3">
+            <label for="inputZip" class="form-label">Code Postal</label>
+            <input type="text" class="form-control rounded-3" name="zip" id="inputZip" placeholder="76000" required value="{{ zip }}">
+          </div>
+
+          <div class="col-md-3">
+            <label for="inputState" class="form-label">Pays</label>
+            <input type="text" class="form-control rounded-3" name="state" id="inputState" required value="{{ state }}">
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputEmail" class="form-label">Email</label>
+            <input type="email" readonly class="form-control-plaintext border border-warning rounded-3 bg-light px-3 py-2" name="email" id="inputEmail" value="{{ email }}">
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputUsername" class="form-label">Nom d'utilisateur</label>
+            <input type="text" readonly class="form-control-plaintext border border-warning rounded-3 bg-light px-3 py-2" name="user" id="inputUsername" value="{{ user }}">
+          </div>
+
+          <div class="col-md-6">
+            <label for="inputPassword" class="form-label">Mot de passe</label>
+            <input type="password" class="form-control rounded-3" name="pass" id="inputPassword" required value="{{ pass }}">
+          </div>
+        </div>
+
+        <div class="text-center mt-4">
+          <button type="submit" name="btnsave" class="btn btn-warning btn-lg px-4">
+            <i class="bi bi-save me-2"></i> Enregistrer les modifications
+          </button>
+        </div>
+      </form>
+
+      {% else %}
+      <div class="alert alert-danger text-center mt-4">
+        Vous devez être connecté pour accéder à votre profil. <br>
+        <a href="{% url 'signin' %}" class="btn btn-outline-dark mt-3">Se connecter</a>
+      </div>
+      {% endif %}
+    </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %} | Nos services{% endblock %}
+
+{% block content %}
+
+<div class="my-form container p-5 my-5 rounded border border-warning  bg-light">
+    <form>
+        <h2 class="text-center">
+          Services
+        </h2>
+        <hr>
+
+        <section>
+          <div class="container-fluid">
+            <div class="row p-5" >
+
+{% for serv in services %}
+               <div>
+                  <div class="card m-2" style="width: 18rem;">
+                    <img src="{{serv.photo.url}}" class="card-img-top" alt="{{serv.nom}}">
+                    <div class="card-body">
+                      <h5 class="card-title">{{serv.nom}}</h5>
+                      <p class="card-text text-truncate">{{serv.description}}</p>
+                      <a href="{% url 'service' service_id=serv.id %}" class="btn btn-warning">Afficher les détails</a>
+                      
+                     
+                    </div>
+                  </div>
+                </div>
+        
+{% empty %}
+ <h4 class="alert alert-warning">
+  Element demander introuvable!!!,
+  <a href="{% url 'services' %}" class="text-dark">Tous les services</a>
+{% endfor %}
+
+              </div>
+            </div>
+        </section>
+    
+
+    </form>
+
+</div>
+
+{% endblock %}
