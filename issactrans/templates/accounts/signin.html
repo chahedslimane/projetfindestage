@@ -41,17 +41,24 @@
                 <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
                 <input type="password" class="form-control rounded-end" name="pass" id="inputPassword" required>
               </div>
+              
             </div>
 
             <div class="form-check mb-4">
               <input type="checkbox" class="form-check-input" name="rememberme" id="rememberMe">
-              <label class="form-check-label" for="rememberMe">Souviens-toi de moi</label>
+              <label class="form-check-label" for="rememberMe">Se souvenir de moi</label>
             </div>
 
-            <div class="d-grid">
+            <div class="d-grid gap-2">
               <button type="submit" name="btnlogin" class="btn btn-warning btn-lg">
                 <i class="bi bi-box-arrow-in-right me-1"></i> Connexion
               </button>
+              <div class="text-center mt-3">
+                <span class="text-muted">Pas encore de compte ? </span>
+                <a href="{% url 'signup' %}?next={{ request.GET.next }}" class="text-primary text-decoration-none fw-medium">
+                  Créer un compte
+                </a>
+              </div>
             </div>
           </form>
 

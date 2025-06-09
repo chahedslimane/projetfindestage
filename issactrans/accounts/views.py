@@ -10,31 +10,128 @@ import re
 # Create your views here.
 
 def signin(request):
+    """
+    Gère le processus de connexion des utilisateurs.
+    Flux :
+    1. Affichage du formulaire de connexion (GET)
+    2. Vérification des identifiants (POST)
+    3. Authentification et création de session
+    """
+    # Étape 1: Vérification si la requête est de type POST (soumission du formulaire)
     if request.method == 'POST' and 'btnlogin' in request.POST:
+        # Étape 2: Récupération des identifiants depuis le formulaire
+        username = request.POST['user']
+        password = request.POST['pass']
 
-       username = request.POST['user']
-       password = request.POST['pass']
+        # Étape 3: Vérification des identifiants avec l'authentification Django
+        # Cette étape correspond à la vérification dans la base de données
+        user = auth.authenticate(username=username, password=password)
 
-       user = auth.authenticate(username=username, password=password)
-
-       if user is not None:
-           if 'rememberme' not in request.POST:
-               request.session.set_expiry(0)
-           auth.login(request, user)
-           #messages.success(request, 'You are now logged in')
-       else:  
-           messages.error(request, 'Nom utilisateur ou mot de passe invalide')
+        # Étape 4: Si l'utilisateur existe et est valide
+        if user is not None:
+            # Étape 5: Gestion de l'option "Se souvenir de moi"
+            # Si la case n'est pas cochée, la session expire à la fermeture du navigateur
+            if 'rememberme' not in request.POST:
+                request.session.set_expiry(0)
+                
+            # Étape 6: Connexion de l'utilisateur (création de la session)
+            auth.login(request, user)
             
-        
-       return redirect('signin')
+            # Message de succès (optionnel)
+            #messages.success(request, 'Connexion réussie !')
+            
+            # Redirection vers la page d'accueil après connexion
+            return redirect('index')
+        else:  
+            # Étape 4a: Message d'erreur si les identifiants sont invalides
+            messages.error(request, 'Nom utilisateur ou mot de passe invalide')
+            
+        return redirect('signin')
     else:
-        return render( request , 'accounts/signin.html')
+        # Étape 1a: Affichage du formulaire de connexion pour les requêtes GET
+        return render(request, 'accounts/signin.html')
+def signup(request):
+    """
+    Gère le processus d'inscription des utilisateurs.
+    Flux :
+    1. Affichage du formulaire d'inscription (GET)
+    2. Validation des données du formulaire (POST)
+    3. Vérification de l'unicité de l'email
+    4. Création du compte utilisateur
+    """
+    # Étape 1: Vérification si la requête est de type POST (soumission du formulaire)
+    if request.method == 'POST' and 'btnsignup' in request.POST:
+        # Récupération des données du formulaire
+        fname = request.POST.get('fname', '').strip()
+        lname = request.POST.get('lname', '').strip()
+        email = request.POST.get('email', '').strip().lower()
+        username = request.POST.get('user', '').strip()
+        password = request.POST.get('pass', '').strip()
+        
+        # Étape 2: Validation des champs obligatoires
+        if not all([fname, lname, email, username, password]):
+            messages.error(request, 'Tous les champs sont obligatoires')
+            return render(request, 'accounts/signup.html', {
+                'fname': fname,
+                'lname': lname,
+                'email': email,
+                'user': username
+            })
+        
+        # Étape 3: Vérification du format de l'email
+        if not re.match(r'^[\w\.-]+@[\w\.-]+\.\w+$', email):
+            messages.error(request, 'Format d\'email invalide')
+            return render(request, 'accounts/signup.html', {
+                'fname': fname,
+                'lname': lname,
+                'email': email,
+                'user': username
+            })
+        
+        # Étape 4: Vérification de l'unicité de l'email
+        if User.objects.filter(email=email).exists():
+            messages.error(request, 'Cet email est déjà utilisé')
+            return render(request, 'accounts/signup.html', {
+                'fname': fname,
+                'lname': lname,
+                'user': username
+            })
+        
+        # Étape 5: Vérification de l'unicité du nom d'utilisateur
+        if User.objects.filter(username=username).exists():
+            messages.error(request, 'Ce nom d\'utilisateur est déjà pris')
+            return render(request, 'accounts/signup.html', {
+                'fname': fname,
+                'lname': lname,
+                'email': email
+            })
+        
+        # Étape 6: Création du compte utilisateur
+        try:
+            user = User.objects.create_user(
+                username=username,
+                email=email,
+                password=password,
+                first_name=fname,
+                last_name=lname
+            )
+            
+            # Connexion automatique après inscription
+            auth.login(request, user)
+            messages.success(request, 'Inscription réussie ! Vous êtes maintenant connecté.')
+            return redirect('index')
+            
+        except Exception as e:
+            messages.error(request, f'Une erreur est survenue lors de la création du compte: {str(e)}')
+            return render(request, 'accounts/signup.html', {
+                'fname': fname,
+                'lname': lname,
+                'email': email,
+                'user': username
+            })
     
-def logout(request):
-    if request.user.is_authenticated:
-            auth.logout(request)
-    return redirect('index')
-
+    # Affichage du formulaire d'inscription (GET)
+    return render(request, 'accounts/signup.html')    
 def signup(request):
     if request.method == 'POST' and 'btnsignup' in request.POST:
        
@@ -209,21 +306,46 @@ def profile(request):
          return redirect('profile')
      
 def service_favorite(request, service_id):
+    """
+    Gère l'ajout d'un service aux favoris d'un utilisateur.
+    Flux :
+    1. Vérification de l'authentification de l'utilisateur
+    2. Récupération du service concerné
+    3. Vérification si le service est déjà en favori
+    4. Ajout du service aux favoris si nécessaire
+    5. Redirection vers la page du service avec un message approprié
+    """
+    # Étape 1: Vérification si l'utilisateur est connecté
     if request.user.is_authenticated and not request.user.is_anonymous:
-        serv_fav = Service.objects.get(pk=service_id)
-        if UserProfile.objects.filter(user=request.user,service_favorites=serv_fav).exists():
-           messages.success(request, 'ce service existe déjà  dans la liste des favoris')
-        else:
-            userprofile = UserProfile.objects.get(user=request.user)   
-            userprofile.service_favorites.add(serv_fav)
-            messages.success(request, 'Le service a été mis en favoris ')
+        try:
+            # Étape 2: Récupération du service à partir de l'ID fourni
+            serv_fav = Service.objects.get(pk=service_id)
             
-        
+            # Étape 3: Vérification si le service est déjà dans les favoris de l'utilisateur
+            if UserProfile.objects.filter(user=request.user, service_favorites=serv_fav).exists():
+                # Message si le service est déjà en favori
+                messages.info(request, 'Ce service est déjà dans votre liste de favoris')
+            else:
+                # Étape 4: Ajout du service aux favoris de l'utilisateur
+                userprofile = UserProfile.objects.get(user=request.user)   
+                userprofile.service_favorites.add(serv_fav)
+                # Message de succès
+                messages.success(request, 'Le service a été ajouté à vos favoris')
+                
+        except Service.DoesNotExist:
+            # Gestion du cas où le service n'existe pas
+            messages.error(request, 'Le service demandé n\'existe pas')
+        except UserProfile.DoesNotExist:
+            # Gestion du cas où le profil utilisateur n'existe pas
+            messages.error(request, 'Profil utilisateur introuvable')
     else:
-         messages.error(request, 'Vous devez vous connecté')
-         
+        # Redirection vers la page de connexion avec le paramètre next pour revenir au service
+        messages.warning(request, 'Veuillez vous connecter pour ajouter ce service à vos favoris')
+        login_url = f'/accounts/signin?next={request.path}'
+        return redirect(login_url)
+     
+    # Étape 5: Redirection vers la page du service
     return redirect('/services/' + str(service_id))
-
 
 def show_service_favorite(request):
     context = None
@@ -234,3 +356,7 @@ def show_service_favorite(request):
     return render(request, 'services/services.html', context)
 
         
+def logout(request):
+    if request.user.is_authenticated:
+            auth.logout(request)
+    return redirect('index')

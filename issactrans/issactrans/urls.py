@@ -19,7 +19,9 @@ from django.urls import path , include
 from django.conf import settings
 from django.conf.urls.static import static
 
-
+admin.site.site_header='ISSACTRANSPORT'
+admin.site.site_title='PORTAIL MULTI SOCIETE ISSAC TRANSPORTT'
+admin.site.index_title='BIENVENUE SUR ADMINITRATEUR ISSAC TRANSPORT'
 
 urlpatterns = [
     path('', include('pages.urls')),
@@ -28,6 +30,12 @@ urlpatterns = [
     path('accounts/' , include('accounts.urls')),
     path('services/', include('services.urls') ),
     path("crudapp/", include("crudapp.urls")),
+    path('schema-viewer/', include('schema_viewer.urls')),
+    path("data-browser/", include("data_browser.urls"))
+
+
+    
+
       
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 

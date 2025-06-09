@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<style>
+.r1 {color: #008000; text-decoration-color: #008000; font-weight: bold; text-decoration: underline}
+.r2 {font-style: italic}
+.r3 {font-weight: bold}
+.r4 {color: #000080; text-decoration-color: #000080}
+.r5 {color: #800080; text-decoration-color: #800080}
+.r6 {color: #008000; text-decoration-color: #008000; font-weight: bold}
+.r7 {color: #808000; text-decoration-color: #808000}
+.r8 {color: #c0c0c0; text-decoration-color: #c0c0c0}
+.r9 {color: #870000; text-decoration-color: #870000}
+.r10 {color: #008080; text-decoration-color: #008080; font-weight: bold; text-decoration: underline}
+.r11 {color: #800000; text-decoration-color: #800000}
+.r12 {color: #000000; text-decoration-color: #000000; background-color: #ffffff}
+body {
+    color: #000000;
+    background-color: #ffffff;
+}
+</style>
+</head>
+<body>
+    <pre style="font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace"><code style="font-family:inherit">                                                                                                                             
+                                                                                                                             
+<span class="r1">                                                                                                                             </span>
+                                                                                                                             
+<span class="r1">accounts.UserProfile</span>
+                                                                                                                             
+        <span class="r2">                                        Model Info                                         </span>                          
+        ┏━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓                          
+        ┃<span class="r3"> Key                 </span>┃<span class="r3"> Value                                                             </span>┃                          
+        ┡━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩                          
+        │<span class="r4"> Model Name          </span>│<span class="r5"> UserProfile                                                       </span>│                          
+        │<span class="r4"> Verbose Name        </span>│<span class="r5"> user profile                                                      </span>│                          
+        │<span class="r4"> Verbose Name Plural </span>│<span class="r5"> user profiles                                                     </span>│                          
+        │<span class="r4"> Docstring           </span>│<span class="r5"> UserProfile(id, user, address, address2, city, state, zip_number) </span>│                          
+        │<span class="r4"> Is Abstract         </span>│<span class="r5"> False                                                             </span>│                          
+        │<span class="r4"> Is Proxy            </span>│<span class="r5"> False                                                             </span>│                          
+        └─────────────────────┴───────────────────────────────────────────────────────────────────┘                          
+<span class="r6">                                                                                                                             </span>
+<span class="r6">    Fields:                                                                                                                  </span>
+                                                                                                                             
+        <span class="r2">                                                    Other Fields                                                     </span>
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┓
+        ┃<span class="r3"> Field Name                     </span>┃<span class="r3"> Field Type      </span>┃<span class="r3"> Database Column   </span>┃<span class="r3"> Database Type          </span>┃<span class="r3"> Verbose Name      </span>┃
+        ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━┩
+        │<span class="r7"> UserProfile_service_favorites+ </span>│<span class="r5"> ManyToOneRel    </span>│<span class="r5">                   </span>│<span class="r5"> bigint                 </span>│<span class="r8">                   </span>│
+        │<span class="r7"> address                        </span>│<span class="r5"> CharField       </span>│<span class="r5"> address           </span>│<span class="r5"> varchar(60)            </span>│<span class="r8"> address           </span>│
+        │<span class="r7"> address2                       </span>│<span class="r5"> CharField       </span>│<span class="r5"> address2          </span>│<span class="r5"> varchar(60)            </span>│<span class="r8"> address2          </span>│
+        │<span class="r7"> city                           </span>│<span class="r5"> CharField       </span>│<span class="r5"> city              </span>│<span class="r5"> varchar(60)            </span>│<span class="r8"> city              </span>│
+        │<span class="r7"> id (pk)                        </span>│<span class="r5"> BigAutoField    </span>│<span class="r5"> id                </span>│<span class="r5"> bigint                 </span>│<span class="r8"> ID                </span>│
+        │<span class="r7"> service_favorites              </span>│<span class="r5"> ManyToManyField </span>│<span class="r5"> service_favorites </span>│<span class="r5"> through                </span>│<span class="r8"> service favorites </span>│
+        │<span class="r7">                                </span>│<span class="r5">                 </span>│<span class="r5">                   </span>│<span class="r5"> accounts.UserProfile_… </span>│<span class="r8">                   </span>│
+        │<span class="r7"> state                          </span>│<span class="r5"> CharField       </span>│<span class="r5"> state             </span>│<span class="r5"> varchar(60)            </span>│<span class="r8"> state             </span>│
+        │<span class="r7"> user                           </span>│<span class="r5"> OneToOneField   </span>│<span class="r5"> user_id           </span>│<span class="r5"> integer                </span>│<span class="r8"> user              </span>│
+        │<span class="r7"> zip_number                     </span>│<span class="r5"> CharField       </span>│<span class="r5"> zip_number        </span>│<span class="r5"> varchar(5)             </span>│<span class="r8"> zip number        </span>│
+        └────────────────────────────────┴─────────────────┴───────────────────┴────────────────────────┴───────────────────┘
+                                                                                                                             
+        <span class="r2">                                                      Relations                                                      </span>
+        ┏━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━┓
+        ┃<span class="r3"> Field Name        </span>┃<span class="r3"> Field Type      </span>┃<span class="r3"> Database Column   </span>┃<span class="r3"> Database Type      </span>┃<span class="r3">    Related Model </span>┃<span class="r3">    Related Name </span>┃
+        ┡━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━┩
+        │<span class="r7"> service_favorites </span>│<span class="r5"> ManyToManyField </span>│<span class="r5"> service_favorites </span>│<span class="r5"> through            </span>│<span class="r9"> services.Service </span>│<span class="r9"> userprofile_set </span>│
+        │<span class="r7">                   </span>│<span class="r5">                 </span>│<span class="r5">                   </span>│<span class="r5"> accounts.UserProf… </span>│<span class="r9">                  </span>│<span class="r9">                 </span>│
+        │<span class="r7"> user              </span>│<span class="r5"> OneToOneField   </span>│<span class="r5"> user_id           </span>│<span class="r5"> integer            </span>│<span class="r9">        auth.User </span>│<span class="r9"> userprofile_set </span>│
+        └───────────────────┴─────────────────┴───────────────────┴────────────────────┴──────────────────┴─────────────────┘
+                                                                                                                             
+        <span class="r2">                                                  Reverse Relations                                                  </span>
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┓
+        ┃<span class="r3">                                                              </span>┃<span class="r3">          </span>┃<span class="r3">          </span>┃<span class="r3">         </span>┃<span class="r3"> Field    </span>┃<span class="r3"> Field   </span>┃
+        ┃<span class="r3">                                                              </span>┃<span class="r3">          </span>┃<span class="r3">          </span>┃<span class="r3">         </span>┃<span class="r3"> Name on  </span>┃<span class="r3"> Type on </span>┃
+        ┃<span class="r3">                                                              </span>┃<span class="r3"> Field    </span>┃<span class="r3"> Database </span>┃<span class="r3"> Related </span>┃<span class="r3"> Related  </span>┃<span class="r3"> Related </span>┃
+        ┃<span class="r3"> Field Name                                                   </span>┃<span class="r3"> Type     </span>┃<span class="r3"> Type     </span>┃<span class="r3">   Model </span>┃<span class="r3"> Model    </span>┃<span class="r3"> Model   </span>┃
+        ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━┩
+        │<span class="r7"> UserProfile_service_favorites+ (no reverse relation allowed) </span>│<span class="r5"> ManyToO… </span>│<span class="r5"> bigint   </span>│<span class="r9"> accoun… </span>│<span class="r9"> userpro… </span>│<span class="r9"> Foreig… </span>│
+        └──────────────────────────────────────────────────────────────┴──────────┴──────────┴─────────┴──────────┴─────────┘
+<span class="r6">                                                                                                                             </span>
+<span class="r6">    Methods (non-private/internal):                                                                                          </span>
+                                                                                                                             
+        <span class="r2">                    Dunder Methods                    </span>                                                               
+        ┏━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓                                                               
+        ┃<span class="r3"> Method Name       </span>┃<span class="r3"> Signature                      </span>┃                                                               
+        ┡━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩                                                               
+        │<span class="r7"> __class__         </span>│<span class="r5"> (name, bases, attrs, **kwargs) </span>│                                                               
+        │<span class="r7"> __delattr__       </span>│<span class="r5"> (self, name, /)                </span>│                                                               
+        │<span class="r7"> __dir__           </span>│<span class="r5"> (self, /)                      </span>│                                                               
+        │<span class="r7"> __eq__            </span>│<span class="r5"> (self, other)                  </span>│                                                               
+        │<span class="r7"> __format__        </span>│<span class="r5"> (self, format_spec, /)         </span>│                                                               
+        │<span class="r7"> __ge__            </span>│<span class="r5"> (self, value, /)               </span>│                                                               
+        │<span class="r7"> __getattribute__  </span>│<span class="r5"> (self, name, /)                </span>│                                                               
+        │<span class="r7"> __getstate__      </span>│<span class="r5"> (self)                         </span>│                                                               
+        │<span class="r7"> __gt__            </span>│<span class="r5"> (self, value, /)               </span>│                                                               
+        │<span class="r7"> __hash__          </span>│<span class="r5"> (self)                         </span>│                                                               
+        │<span class="r7"> __init__          </span>│<span class="r5"> (self, *args, **kwargs)        </span>│                                                               
+        │<span class="r7"> __init_subclass__ </span>│<span class="r5"> (**kwargs)                     </span>│                                                               
+        │<span class="r7"> __le__            </span>│<span class="r5"> (self, value, /)               </span>│                                                               
+        │<span class="r7"> __lt__            </span>│<span class="r5"> (self, value, /)               </span>│                                                               
+        │<span class="r7"> __ne__            </span>│<span class="r5"> (self, value, /)               </span>│                                                               
+        │<span class="r7"> __new__           </span>│<span class="r5"> (*args, **kwargs)              </span>│                                                               
+        │<span class="r7"> __reduce__        </span>│<span class="r5"> (self)                         </span>│                                                               
+        │<span class="r7"> __reduce_ex__     </span>│<span class="r5"> (self, protocol, /)            </span>│                                                               
+        │<span class="r7"> __repr__          </span>│<span class="r5"> (self)                         </span>│                                                               
+        │<span class="r7"> __setattr__       </span>│<span class="r5"> (self, name, value, /)         </span>│                                                               
+        │<span class="r7"> __setstate__      </span>│<span class="r5"> (self, state)                  </span>│                                                               
+        │<span class="r7"> __sizeof__        </span>│<span class="r5"> (self, /)                      </span>│                                                               
+        │<span class="r7"> __str__           </span>│<span class="r5"> (self)                         </span>│                                                               
+        │<span class="r7"> __subclasshook__  </span>│<span class="r5"> (object, /)                    </span>│                                                               
+        └───────────────────┴────────────────────────────────┘                                                               
+                                                                                                                             
+        <span class="r2">                                                Common Django Methods                                                </span>
+        ┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+        ┃<span class="r3"> Method Name                                         </span>┃<span class="r3"> Signature                                                   </span>┃
+        ┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┩
+        │<span class="r7"> _check_column_name_clashes                          </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_constraints                                  </span>│<span class="r5"> (databases)                                                 </span>│
+        │<span class="r7"> _check_db_table_comment                             </span>│<span class="r5"> (databases)                                                 </span>│
+        │<span class="r7"> _check_default_pk                                   </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_field_name_clashes                           </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_fields                                       </span>│<span class="r5"> (**kwargs)                                                  </span>│
+        │<span class="r7"> _check_id_field                                     </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_indexes                                      </span>│<span class="r5"> (databases)                                                 </span>│
+        │<span class="r7"> _check_local_fields                                 </span>│<span class="r5"> (fields, option)                                            </span>│
+        │<span class="r7"> _check_long_column_names                            </span>│<span class="r5"> (databases)                                                 </span>│
+        │<span class="r7"> _check_m2m_through_same_relationship                </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_managers                                     </span>│<span class="r5"> (**kwargs)                                                  </span>│
+        │<span class="r7"> _check_model                                        </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_model_name_db_lookup_clashes                 </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_ordering                                     </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_property_name_related_field_accessor_clashes </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_single_primary_key                           </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_swappable                                    </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _check_unique_together                              </span>│<span class="r5"> ()                                                          </span>│
+        │<span class="r7"> _do_insert                                          </span>│<span class="r5"> (self, manager, using, fields, returning_fields, raw)       </span>│
+        │<span class="r7"> _do_update                                          </span>│<span class="r5"> (self, base_qs, using, pk_val, values, update_fields,       </span>│
+        │<span class="r7">                                                     </span>│<span class="r5"> forced_update)                                              </span>│
+        │<span class="r7"> _get_FIELD_display                                  </span>│<span class="r5"> (self, field)                                               </span>│
+        │<span class="r7"> _get_expr_references                                </span>│<span class="r5"> (expr)                                                      </span>│
+        │<span class="r7"> _get_field_expression_map                           </span>│<span class="r5"> (self, meta, exclude=None)                                  </span>│
+        │<span class="r7"> _get_next_or_previous_by_FIELD                      </span>│<span class="r5"> (self, field, is_next, **kwargs)                            </span>│
+        │<span class="r7"> _get_next_or_previous_in_order                      </span>│<span class="r5"> (self, is_next)                                             </span>│
+        │<span class="r7"> _get_pk_val                                         </span>│<span class="r5"> (self, meta=None)                                           </span>│
+        │<span class="r7"> _get_unique_checks                                  </span>│<span class="r5"> (self, exclude=None, include_meta_constraints=False)        </span>│
+        │<span class="r7"> _parse_params                                       </span>│<span class="r5"> (self, *args, method_name, **kwargs)                        </span>│
+        │<span class="r7"> _perform_date_checks                                </span>│<span class="r5"> (self, date_checks)                                         </span>│
+        │<span class="r7"> _perform_unique_checks                              </span>│<span class="r5"> (self, unique_checks)                                       </span>│
+        │<span class="r7"> _prepare_related_fields_for_save                    </span>│<span class="r5"> (self, operation_name, fields=None)                         </span>│
+        │<span class="r7"> _save_parents                                       </span>│<span class="r5"> (self, cls, using, update_fields, force_insert,             </span>│
+        │<span class="r7">                                                     </span>│<span class="r5"> updated_parents=None)                                       </span>│
+        │<span class="r7"> _save_table                                         </span>│<span class="r5"> (self, raw=False, cls=None, force_insert=False,             </span>│
+        │<span class="r7">                                                     </span>│<span class="r5"> force_update=False, using=None, update_fields=None)         </span>│
+        │<span class="r7"> _set_pk_val                                         </span>│<span class="r5"> (self, value)                                               </span>│
+        │<span class="r7"> _validate_force_insert                              </span>│<span class="r5"> (force_insert)                                              </span>│
+        │<span class="r7"> adelete                                             </span>│<span class="r5"> (self, using=None, keep_parents=False)                      </span>│
+        │<span class="r7"> arefresh_from_db                                    </span>│<span class="r5"> (self, using=None, fields=None, from_queryset=None)         </span>│
+        │<span class="r7"> asave                                               </span>│<span class="r5"> (self, *args, force_insert=False, force_update=False,       </span>│
+        │<span class="r7">                                                     </span>│<span class="r5"> using=None, update_fields=None)                             </span>│
+        │<span class="r7"> check                                               </span>│<span class="r5"> (**kwargs)                                                  </span>│
+        │<span class="r7"> clean                                               </span>│<span class="r5"> (self)                                                      </span>│
+        │<span class="r7"> clean_fields                                        </span>│<span class="r5"> (self, exclude=None)                                        </span>│
+        │<span class="r7"> date_error_message                                  </span>│<span class="r5"> (self, lookup_type, field_name, unique_for)                 </span>│
+        │<span class="r7"> delete                                              </span>│<span class="r5"> (self, using=None, keep_parents=False)                      </span>│
+        │<span class="r7"> from_db                                             </span>│<span class="r5"> (db, field_names, values)                                   </span>│
+        │<span class="r7"> full_clean                                          </span>│<span class="r5"> (self, exclude=None, validate_unique=True,                  </span>│
+        │<span class="r7">                                                     </span>│<span class="r5"> validate_constraints=True)                                  </span>│
+        │<span class="r7"> get_constraints                                     </span>│<span class="r5"> (self)                                                      </span>│
+        │<span class="r7"> get_deferred_fields                                 </span>│<span class="r5"> (self)                                                      </span>│
+        │<span class="r7"> prepare_database_save                               </span>│<span class="r5"> (self, field)                                               </span>│
+        │<span class="r7"> refresh_from_db                                     </span>│<span class="r5"> (self, using=None, fields=None, from_queryset=None)         </span>│
+        │<span class="r7"> save                                                </span>│<span class="r5"> (self, *args, force_insert=False, force_update=False,       </span>│
+        │<span class="r7">                                                     </span>│<span class="r5"> using=None, update_fields=None)                             </span>│
+        │<span class="r7"> save_base                                           </span>│<span class="r5"> (self, raw=False, force_insert=False, force_update=False,   </span>│
+        │<span class="r7">                                                     </span>│<span class="r5"> using=None, update_fields=None)                             </span>│
+        │<span class="r7"> serializable_value                                  </span>│<span class="r5"> (self, field_name)                                          </span>│
+        │<span class="r7"> unique_error_message                                </span>│<span class="r5"> (self, model_class, unique_check)                           </span>│
+        │<span class="r7"> validate_constraints                                </span>│<span class="r5"> (self, exclude=None)                                        </span>│
+        │<span class="r7"> validate_unique                                     </span>│<span class="r5"> (self, exclude=None)                                        </span>│
+        └─────────────────────────────────────────────────────┴─────────────────────────────────────────────────────────────┘
+
+<span class="r1">Total Models Listed: </span><span class="r10">1</span>
+
+<span class="r11">            </span><span class="r12">                                                                                                    </span><span class="r11">             </span>
+</code></pre>
+</body>
+</html>

@@ -31,6 +31,9 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'django_model_info.apps.DjangoModelInfoConfig',
+    'django_extensions',
+    'simpleui',
     'rgpd.apps.RgpdConfig',
     'devis.apps.DevisConfig',
     'crudapp.apps.CrudappConfig',
@@ -43,6 +46,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'schema_viewer',
+    "data_browser" ,
     
 ]
 
